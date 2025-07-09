@@ -51,16 +51,16 @@ progressBar.addEventListener('input', () => {
 
 const playlist = [
     {
-        src: 'audio/music1_songsat_bray.mp3',
+        src: '/music1_songsat_bray.mp3',
         title: 'Bray - Song Sắt'
     },
     {
-        src: 'audio/music2_an_lilwuyn.mp3',
+        src: '/music2_an_lilwuyn.mp3',
         title: 'Lil Wuyn - An (feat. Minstu) [An album]'
 
     },
     {
-        src: 'audio/music3_naobietdau_lilwuyn.m4a',
+        src: '/music3_naobietdau_lilwuyn.m4a',
         title: 'Lil Wuyn - Nào biết đâu(An album)'
     }
 ];
