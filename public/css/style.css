@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lilita+One&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    /* overflow: hidden; */
+}
+
+.lilita-font {
+    font-family: "Lilita One", sans-serif;
+    font-style: normal;
+}
+
+#bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: brightness(0.5);
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    filter: none;
+    opacity: 1;
+}
+
+.music-player {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.music-player button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#seek-bar {
+    width: 200px;
+}
+
+#music-prompt {
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 26px;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+/* BUTTON */
+
+/* IMAGE */
+.info_avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 8px;
+}
+
+.avatar {
+    display: inline-block;
+}
+
+.info_avatar {
+    object-fit: cover;
+    border: 5px solid #2f2f2f;
+}
+
+.avatar-circle {
+    position: relative;
+
+}
+
+.avatar::after {
+    position: absolute;
+    content: '';
+    background-image: url('https://cdn.discordapp.com/avatar-decoration-presets/a_94febf08c37b21ee5ed92c49ef98bf00.png?size=128&passthrough=true');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 170px;
+    height: 170px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.feel-rest {
+    position: absolute;
+    top: 10px;
+    right: -148px;
+    background: rgba(0, 0, 0, .8);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 20px;
+    width: fit-content;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: white;
+    border: 2px solid #2f2f2f;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.dot-feel {
+    position: absolute;
+    right: -15px;
+    top: 50px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, .8);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 2;
+}
+
+.dot-active {
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #4F935F;
+    border: 5px solid #2f2f2f;
+    z-index: 2;
+}
+
+/* ORTHER */
+.giua-tam {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name h1 {
+    /* text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff; */
+    text-shadow: 0px 0px 16.5px #FFFFFF;
+    color: #fff;
+    font-weight: bold;
+    background-image: url('https://assets.guns.lol/sparkle_white.gif');
+    font-family: "Lilita One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.address-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.address-link:hover {
+    text-decoration: underline;
+}
+
+.time-active {
+    margin-top: -10px;
+}
+
+.hover-bb {
+    transition: all .3s ease;
+}
+
+.hover-bb:hover {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.info {
+    margin-top: 120px;
+}
