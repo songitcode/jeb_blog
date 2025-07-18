@@ -208,10 +208,34 @@ html {
         padding: 4px 8px;
     }
 }
-@media screen and (max-width: 390px) {
-    .feel-rest, .dot-feel {
+
+@media (max-width: 400px) {
+    .feel-rest {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .feel-rest {
+        font-size: 8px;
+        top: 20px;
+        left: 90%;
+    }
+
+    .dot-feel {
+        width: 10px;
+        height: 10px;
+        left: 95%;
+    }
+}
+
+@media screen and (max-width: 180px) {
+
+    .feel-rest,
+    .dot-feel {
         display: none;
     }
+
 }
 
 @media (max-width: 767px) {
