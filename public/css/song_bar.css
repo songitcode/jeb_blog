@@ -54,7 +54,7 @@
     top: -10px;
     left: 0;
     min-width: 100%;
-    min-height: 100%;
+    min-height: 110%;
     object-fit: cover;
     z-index: -1;
 }
@@ -172,12 +172,6 @@
     text-align: end;
 }
 
-.song-title {
-    margin-bottom: 10px;
-    text-align: left;
-    font-size: 16px;
-}
-
 .media-volume {
     position: fixed;
     top: 0;
@@ -210,6 +204,12 @@
 }
 
 .song-title {
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 16px;
+}
+
+.song-title {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -227,6 +227,33 @@
     content: attr(data-text);
     position: absolute;
     animation: scroll 10s linear infinite;
+}
+
+.img-song {
+    border-radius: 20px;
+    object-fit: cover;
+    padding: 5px 0;
+    transition: all .5s ease;
+}
+
+@media screen and (max-width: 765px) {
+    .song-title {
+        text-align: center;
+    }
+
+    #bg-video-1 {
+        min-height: 100%;
+        object-fit: cover;
+    }
+
+    .img-song {
+        width: 100%;
+        height: 240px;
+
+        &:hover {
+            height: fit-content;
+        }
+    }
 }
 
 @keyframes scroll {
