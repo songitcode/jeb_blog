@@ -115,12 +115,12 @@ html {
 .feel-rest {
     position: absolute;
     top: 10px;
-    right: -148px;
+    left: 100%;
+    margin-left: 10px;
     background: rgba(0, 0, 0, .8);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     border-radius: 20px;
-    width: fit-content;
     padding: 5px 10px;
     display: flex;
     align-items: center;
@@ -128,6 +128,7 @@ html {
     color: white;
     border: 2px solid #2f2f2f;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
     z-index: 2;
 }
 
@@ -199,4 +200,22 @@ html {
 
 .info {
     margin-top: 120px;
+}
+
+@media (max-width: 480px) {
+    .feel-rest {
+        font-size: 13px;
+        padding: 4px 8px;
+    }
+}
+@media screen and (max-width: 390px) {
+    .feel-rest, .dot-feel {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .bio-product {
+        text-align: center;
+    }
 }

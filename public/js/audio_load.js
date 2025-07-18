@@ -52,16 +52,19 @@ progressBar.addEventListener('input', () => {
 const playlist = [
     {
         src: 'audio/music1_songsat_bray.mp3',
-        title: 'Bray - Song Sắt'
+        title: 'Bray - Song Sắt',
+        img: 'https://i.scdn.co/image/ab67616d0000b273534773f46f7099dcb785b1db'
     },
     {
         src: 'audio/music2_an_lilwuyn.mp3',
-        title: 'Lil Wuyn - An (feat. Minstu) [An album]'
+        title: 'Lil Wuyn - An (feat. Minstu) [An album]',
+        img: 'https://i.scdn.co/image/ab67616d0000b27302539740ebe50caf93b3dd5f'
 
     },
     {
         src: 'audio/music3_naobietdau_lilwuyn.m4a',
-        title: 'Lil Wuyn - Nào biết đâu(An album)'
+        title: 'Lil Wuyn - Nào biết đâu(An album)',
+        img: 'https://i.ytimg.com/vi/mHOfQwf_Wt8/sddefault.jpg'
     }
 ];
 let currentTrack = 0;
@@ -77,6 +80,9 @@ function loadTrack(index) {
     // Hiển thị tên bài hát
     const titleElement = document.getElementById('song-title');
     titleElement.textContent = `${track.title}`;
+
+    const songImg = document.getElementById('song-img');
+    songImg.src = track.img;
 }
 
 playBtn.addEventListener('click', () => {

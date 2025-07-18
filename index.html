@@ -78,44 +78,53 @@
     <!-- Trình điều khiển -->
     <div class="media-controls d-flex justify-content-center">
         <div class="media-progress hover-bb">
-            <video autoplay muted loop playsinline id="bg-video-1">
-                <source src="https://cdn.discordapp.com/assets/collectibles/nameplates/nameplates/vengeance/asset.webm"
-                    type="video/mp4" />
-                Trình duyệt của bạn không hỗ trợ video nền.
-            </video>
+            <div class="row">
+                <div class="col-md-2 ps-0 pe-0">
+                    <img class="img-song" id="song-img" src="/" alt="" width="100%" height="100%">
+                </div>
+                <div class="col-md-10">
+                    <video autoplay muted loop playsinline id="bg-video-1">
+                        <source
+                            src="https://cdn.discordapp.com/assets/collectibles/nameplates/nameplates/vengeance/asset.webm"
+                            type="video/mp4" />
+                        Trình duyệt của bạn không hỗ trợ video nền.
+                    </video>
+                    <div class="media-controls-overlay">
+                        <div class="song-title text-white mt-2 z-1" id="song-title">
+                            Nhấn bất kỳ đâu ...
+                        </div>
+                        <div class="time-info">
+                            <!-- <span id="current-time">00:00</span> / <span id="total-duration">00:00</span> -->
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <button class="back-button media-button" title="Back">
+                                <i class="fas fa-step-backward"></i>
+                            </button>
 
-            <div class="media-controls-overlay">
-                <div class="song-title text-white text-center mt-2 z-1" id="song-title">
-                    Nhấn bất kỳ đâu ...
-                </div>
-                <div class="time-info">
-                    <!-- <span id="current-time">00:00</span> / <span id="total-duration">00:00</span> -->
-                </div>
-                <div class="d-flex align-items-center gap-2">
-                    <button class="back-button media-button" title="Back">
-                        <i class="fas fa-step-backward"></i>
-                    </button>
+                            <button class="rewind-button media-button" title="Tua 5s">
+                                <i class="fas fa-backward"></i>
+                            </button>
+                            <span id="current-time">00:00</span>
+                            <input type="range" id="progress-bar" value="0" step="1">
+                            <span id="total-duration">00:00</span>
+                            <button class="fast-forward-button media-button" title="Tua 5s">
+                                <i class="fas fa-forward"></i>
+                            </button>
 
-                    <button class="rewind-button media-button" title="Tua 5s">
-                        <i class="fas fa-backward"></i>
-                    </button>
-                    <span id="current-time">00:00</span>
-                    <input type="range" id="progress-bar" value="0" step="1">
-                    <span id="total-duration">00:00</span>
-                    <button class="fast-forward-button media-button" title="Tua 5s">
-                        <i class="fas fa-forward"></i>
-                    </button>
-
-                    <button class="skip-button media-button" title="Skip">
-                        <i class="fas fa-step-forward"></i>
-                    </button>
+                            <button class="skip-button media-button" title="Skip">
+                                <i class="fas fa-step-forward"></i>
+                            </button>
+                        </div>
+                        <div class="group-1 pt-2">
+                            <div class="view">
+                                <i class="fa-solid fa-eye"></i></i> <span>204,166k</span>
+                            </div>
+                            <button class="play-button media-button" title="Play/Pause">
+                                <i class="fas fa-play" id="play-icon"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div class="view">
-                    <i class="fa-solid fa-eye"></i></i> <span>204,166k</span>
-                </div>
-                <button class="play-button media-button" title="Play/Pause">
-                    <i class="fas fa-play" id="play-icon"></i>
-                </button>
             </div>
         </div>
     </div>
@@ -269,22 +278,16 @@
     <div class="product mt-5">
         <div class="product-banner-design">
             <div class="text-white bio-product">
-                <div class="d-flex align-items-center">
-                    <h2 class="text-effect-1">My Discord Banner Design Template </h2>
-                    <!-- <span class="h5">- Mẫu thiết kế biểu ngữ Discord của tôi</span> -->
-                </div>
+                <h2 class="text-effect-1">My Discord Banner Design Template </h2>
                 <div class="text-box-1">
                     <p>
                         Contact my discord for advice - Liên hệ nhanh
-                        <a target="_blank" href="https://discord.gg/HDYqjuRfJy" class="text-white">discord</a> của
-                        tôi
-                        để
-                        được tư vấn
+                        <a target="_blank" href="https://discord.gg/HDYqjuRfJy" class="text-white">discord</a>
+                        của tôi để được tư vấn
                     </p>
                     <p>
-                        You can request to make banner according to your idea - Bạn có thể yêu cầu làm banner theo ý
-                        của
-                        bạn
+                        You can request to make banner according to your idea -
+                        Bạn có thể yêu cầu làm banner theo ý của bạn
                     </p>
                 </div>
             </div>
