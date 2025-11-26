@@ -51,9 +51,9 @@ progressBar.addEventListener('input', () => {
 
 const playlist = [
     {
-        src: 'audio/music1_songsat_bray.mp3',
-        title: 'Bray - Song Sắt',
-        img: 'https://i.scdn.co/image/ab67616d0000b273534773f46f7099dcb785b1db'
+        src: 'audio/music4_caphephin.mp3',
+        title: 'cà phê phin ☕.mp3 - Dfoxie37 & flames & Tuann',
+        img: 'https://i.scdn.co/image/ab67616d00001e029c066fabb8afc9943e042b77'
     },
     {
         src: 'audio/music2_an_lilwuyn.mp3',

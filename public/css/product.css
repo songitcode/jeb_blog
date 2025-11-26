@@ -20,7 +20,7 @@
     height: 100px;
     object-fit: cover;
     display: block;
-    filter: blur(12px);
+    filter: blur(8px);
     transition: filter 0.5s ease;
     background-size: cover;
 }
@@ -61,7 +61,7 @@
     display: inline-block;
     box-sizing: border-box;
     cursor: pointer;
-    height: 100px;
+    height: fit-content;
     width: 100%;
 }
 

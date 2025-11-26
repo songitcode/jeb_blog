@@ -84,15 +84,12 @@ html {
     height: 150px;
     border-radius: 50%;
     margin-top: 8px;
+    border: 4px solid #555;
+    object-fit: cover;
 }
 
 .avatar {
     display: inline-block;
-}
-
-.info_avatar {
-    object-fit: cover;
-    border: 5px solid #2f2f2f;
 }
 
 .avatar-circle {
@@ -103,7 +100,7 @@ html {
 .avatar::after {
     position: absolute;
     content: '';
-    background-image: url('https://cdn.discordapp.com/avatar-decoration-presets/a_94febf08c37b21ee5ed92c49ef98bf00.png?size=128&passthrough=true');
+    background-image: url('https://cdn.discordapp.com/avatar-decoration-presets/a_8552f9857793aed0cf816f370e2df3be.png?size=128&passthrough=true');
     background-size: cover;
     background-repeat: no-repeat;
     width: 170px;
@@ -157,6 +154,10 @@ html {
     z-index: 2;
 }
 
+.info {
+    margin-top: 100px;
+}
+
 /* ORTHER */
 .giua-tam {
     display: flex;
@@ -196,10 +197,6 @@ html {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     background: rgba(0, 0, 0, 0.5);
-}
-
-.info {
-    margin-top: 120px;
 }
 
 @media (max-width: 480px) {
