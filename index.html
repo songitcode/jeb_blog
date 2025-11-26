@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Jeb</title>
+    <title>Hoang Son (Jebb)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/public/css/style.css">
     <link rel="stylesheet" href="/public/css/song_bar.css">
@@ -14,28 +14,78 @@
     <link rel="stylesheet" href="/public/css/payment.css">
     <link rel="stylesheet" href="/public/css/line-loader.css">
     <link rel="stylesheet" href="/public/css/marquee-animation.css">
+    <link rel="stylesheet" href="/public/css/discord.css">
+    <link rel="stylesheet" href="/public/css/muadong.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./public/bootstrap-5.3.7-dist/css/bootstrap.min.css">
-    <link rel="icon" type="image/x-icon"
-        href="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3YnlpcWFsMGFxam5rNWJwNnN3OTd6ZTZibm01azJ4YXV3bGxheTEwdSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/puD2M1a83UFRm/giphy.gif">
+    <link rel="icon" type="image/x-icon" href="./images/avatar_1.png">
 </head>
 
-<body>
+<body class="bg-dark">
+    <!-- ///////////////////////////////// -->
+    <div id="particles-js"></div>
+
+    <!-- Các góc trang trí -->
+    <div class="decoration santa-container">
+        <div class="santa">
+            <div class="santa-hat"></div>
+        </div>
+    </div>
+
+    <div class="decoration reindeer-container">
+        <div class="reindeer">
+            <div class="reindeer-head">
+                <div class="reindeer-antler left"></div>
+                <div class="reindeer-antler right"></div>
+                <div class="reindeer-nose"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="decoration tree-container">
+        <div class="tree"></div>
+        <div class="tree"></div>
+        <div class="tree"></div>
+        <div class="trunk"></div>
+        <div class="ornament"></div>
+        <div class="ornament"></div>
+        <div class="ornament"></div>
+        <div class="ornament"></div>
+        <div class="star">★</div>
+    </div>
+
+    <div class="decoration snowman-container">
+        <div class="snowman">
+            <div class="snowball large"></div>
+            <div class="snowball medium"></div>
+            <div class="snowball small"></div>
+            <div class="snowman-eye left"></div>
+            <div class="snowman-eye right"></div>
+            <div class="snowman-nose"></div>
+            <div class="snowman-mouth"></div>
+            <div class="snowman-hat"></div>
+        </div>
+    </div>
+
+    <!-- Hiệu ứng quà rơi -->
+    <div class="gifts-container" id="gifts-container"></div>
+    <!-- /////////////////////////// -->
+
     <div class="info mb-3 ">
         <div class="box-info">
             <div class="avatar giua-tam">
                 <div class="avatar-circle">
-                    <img src="./images/avatar_1.png" alt="avatar_1" class="info_avatar">
-                    <div class="feel-rest">🛠️ bận sửa chữa</div>
+                    <img src="/" alt="avatar_1" class="info_avatar" id="avatar">
+                    <div class="feel-rest" id="custom"><span id="status"></span></div>
                     <div class="dot-feel"></div>
                     <div class="dot-active"></div>
                 </div>
             </div>
             <div class="name giua-tam mt-3">
                 <h1 class="d-flex align-items-center">
-                    <p>Hoang Son Nguyen</p>
+                    <p>Hoang Son (<span id="name"></span>)</p>
                     <i class="fa-solid fa-circle-check fa-xs mb-2 ms-2" style="color: #007AFE;"></i>
                 </h1>
             </div>
@@ -49,8 +99,9 @@
                         width="20px" height="20px">
                 </p>
             </div>
-            <div class="time-active giua-tam text-white">
-                <p>20:00 PM - 00:00 AM</p>
+            <div class="time-active giua-tam text-white info">
+                <div id="activities"></div>
+                <div></div>
             </div>
         </div>
     </div>
@@ -68,10 +119,10 @@
     </div>
 
     <!-- Background Video -->
-    <video autoplay muted loop playsinline id="bg-video">
+    <!-- <video autoplay muted loop playsinline id="bg-video">
         <source src="./video/video_5.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
-    </video>
+    </video> -->
 
     <audio id="audio-player" src="/"></audio>
 
@@ -140,7 +191,10 @@
             <a target="_blank" href="https://www.youtube.com/@jason_ngy/" class="social-button youtube">
                 <i class="fa-brands fa-youtube fa-2xl"></i>
             </a>
-            <a target="_blank" href="https://www.instagram.com/json_ngy/" class="social-button instagram">
+            <a target="_blank" href="https://www.tiktok.com/@jeb_b04" class="social-button tiktok">
+                <i class="fa-brands fa-tiktok fa-2xl"></i>
+            </a>
+            <a target="_blank" href="https://www.instagram.com/js_ngy/" class="social-button instagram">
                 <i class="fa-brands fa-instagram fa-2xl"></i>
             </a>
             <a target="_blank" href="https://discord.gg/HDYqjuRfJy" class="social-button discord">
@@ -149,9 +203,7 @@
         </div>
     </div>
 
-
-
-    <div class="line-loader mt-5 mb-5"></div>
+    <!-- <div class="line-loader mt-5 mb-5"></div> -->
 
     <div class="introduce mt-5">
         <div class="d-flex justify-content-center about container">
@@ -227,118 +279,113 @@
             <h2 class="lilita-font text-effect-1 text-center">My Website Designed Template</h2>
             <div class="d-flex justify-content-center">
                 <div class="masonry-temp mt-4">
-                    <!-- Item -->
+                    <!-- Items -->
                     <div class="masonry-item-temp">
-                        <div class="temp-picture">
-                            <img src="./images/gif/template_1.gif" alt="">
-                            <div class="temp-text">Login-Page 1</div>
+                        <div class="temp-picture" data-title="Login-Page 1" data-img="./images/gif/template_1.gif">
+                            <img src="./images/gif/template_1.gif">
                         </div>
                     </div>
+
                     <div class="masonry-item-temp">
-                        <div class="temp-picture">
-                            <img src="./images/gif/template_2.gif" alt="">
-                            <div class="temp-text">Login-Page 2</div>
+                        <div class="temp-picture" data-title="Home Page 1" data-img="./images/image_3.png">
+                            <img src="./images/image_3.png">
                         </div>
                     </div>
+
                     <div class="masonry-item-temp">
-                        <div class="temp-picture">
-                            <img src="./images/image_1.png" alt="">
-                            <div class="temp-text">Login-Page 3</div>
+                        <div class="temp-picture" data-title="Login-Page 2" data-img="./images/image_6.png">
+                            <img src="./images/image_6.png">
                         </div>
                     </div>
+
                     <div class="masonry-item-temp">
-                        <div class="temp-picture">
-                            <img src="./images/image_2.png" alt="">
-                            <div class="temp-text">IOS APP</div>
+                        <div class="temp-picture" data-title="Home Page 2" data-img="./images/image_7.png">
+                            <img src="./images/image_7.png">
                         </div>
                     </div>
+
                     <div class="masonry-item-temp">
-                        <div class="temp-picture">
-                            <img src="./images/image_3.png" alt="">
-                            <div class="temp-text">Home-Page 1</div>
+                        <div class="temp-picture" data-title="IOS APP" data-img="./images/image_2.png">
+                            <img src="./images/image_2.png">
                         </div>
                     </div>
-                    <div class="masonry-item-temp">
-                        <div class="temp-picture">
-                            <img src="./images/image_4.png" alt="">
-                            <div class="temp-text">Detail Page 1</div>
-                        </div>
-                    </div>
-                    <div class="masonry-item-temp">
-                        <div class="temp-picture">
-                            <img src="./images/image_5.png" alt="">
-                            <div class="temp-text">My Logo Design</div>
-                        </div>
-                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="modal fade" id="imgModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-white" id="imgTitle"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0 text-center">
+                    <img id="imgModalDisplay" class="img-fluid rounded">
                 </div>
             </div>
         </div>
     </div>
 
     <div class="product mt-5">
-        <div class="product-banner-design">
-            <div class="text-white bio-product">
-                <h2 class="text-effect-1">My Discord Banner Design Template </h2>
-                <div class="text-box-1">
-                    <p>
-                        Contact my discord for advice - Liên hệ nhanh
-                        <a target="_blank" href="https://discord.gg/HDYqjuRfJy" class="text-white">discord</a>
-                        của tôi để được tư vấn
-                    </p>
-                    <p>
-                        You can request to make banner according to your idea -
-                        Bạn có thể yêu cầu làm banner theo ý của bạn
-                    </p>
-                </div>
+        <div class="container">
+            <h2 class="lilita-font text-effect-1 text-center">My Discord Banner Design Template</h2>
+            <div class="text-white text-center mt-3">
+                <small>
+                    Contact my discord for advice - Liên hệ nhanh
+                    <a target="_blank" href="https://discord.gg/HDYqjuRfJy" class="text-white">discord</a>
+                    của tôi để được tư vấn
+                </small>
             </div>
-            <div class="masonry mt-2">
-                <div class="masonry-item">
-                    <div class="product-picture">
-                        <img src="./images/gif/1.gif" alt="">
-                        <div class="product-price">
-                            25,000 VNĐ
+            <div class="d-flex justify-content-center">
+                <div class="masonry-temp mt-4">
+                    <!-- Items -->
+                    <div class="masonry-item-temp">
+                        <div class="temp-picture" data-title="Banner Discord" data-img="./images/gif/1.gif">
+                            <div class="product-picture">
+                                <img src="./images/gif/1.gif" alt="">
+                                <div class="product-price">
+                                    25,000 VNĐ
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="masonry-item">
-                    <div class="product-picture">
-                        <img src="./images/gif/2.gif" alt="">
-                        <div class="product-price">
-                            35,000 VNĐ
+
+                    <div class="masonry-item-temp">
+                        <div class="temp-picture" data-title="Banner Discord" data-img="./images/gif/2.gif">
+                            <div class="product-picture">
+                                <img src="./images/gif/2.gif" alt="">
+                                <div class="product-price">
+                                    25,000 VNĐ
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="masonry-item">
-                    <div class="product-picture">
-                        <img src="./images/gif/3.gif" alt="">
-                        <div class="product-price">
-                            32,000 VNĐ
+
+                    <div class="masonry-item-temp">
+                        <div class="temp-picture" data-title="Banner Discord" data-img="./images/gif/3.gif">
+                            <div class="product-picture">
+                                <img src="./images/gif/3.gif" alt="">
+                                <div class="product-price">
+                                    25,000 VNĐ
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="masonry-item">
-                    <div class="product-picture">
-                        <img src="./images/gif/4.gif" alt="">
-                        <div class="product-price">
-                            25,000 VNĐ
+
+                    <div class="masonry-item-temp">
+                        <div class="temp-picture" data-title="Banner Discord" data-img="./images/gif/4.gif">
+                            <div class="product-picture">
+                                <img src="./images/gif/4.gif" alt="">
+                                <div class="product-price">
+                                    25,000 VNĐ
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="masonry-item">
-                    <div class="product-picture">
-                        <img src="./images/gif/5.gif" alt="">
-                        <div class="product-price">
-                            32,000 VNĐ
-                        </div>
-                    </div>
-                </div>
-                <div class="masonry-item">
-                    <div class="product-picture">
-                        <img src="./images/gif/5.gif" alt="">
-                        <div class="product-price">
-                            25,000 VNĐ
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -447,6 +494,11 @@
     <script src="./public/bootstrap-5.3.7-dist/js/bootstrap.min.js"></script>
     <script src="public/js/audio_load.js"></script>
     <script src="public/js/payment.js"></script>
+    <script src="public/js/modal_img.js"></script>
+    <script src="public/js/lanyard_discord.js"></script>
+    <script src="public/js/particles.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ECW6LJE6LV"></script>
     <script>
