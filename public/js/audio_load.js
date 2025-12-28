@@ -51,14 +51,14 @@ progressBar.addEventListener('input', () => {
 
 const playlist = [
     {
-        src: 'audio/music4_caphephin.mp3',
-        title: 'cà phê phin ☕.mp3 - Dfoxie37 & flames & Tuann',
-        img: 'https://i.scdn.co/image/ab67616d00001e029c066fabb8afc9943e042b77'
+        src: 'audio/music5_deepsea_binz.mp3',
+        title: 'Deep Sea - Binz x Thanh Nguyễn x Triple D',
+        img: 'https://hypeddit-gates-prod.s3.amazonaws.com/qyg9t2_coverartmanual'
     },
     {
-        src: 'audio/music2_an_lilwuyn.mp3',
-        title: 'Lil Wuyn - An (feat. Minstu) [An album]',
-        img: 'https://i.scdn.co/image/ab67616d0000b27302539740ebe50caf93b3dd5f'
+        src: 'audio/music6_daonay_obito.mp3',
+        title: 'obito - dạo này',
+        img: 'https://vietnamcopyright.vn/storage/uploads/HjbZFLSwYqOMQDqqdVOHoTLyMyDLYvftwd47PHv0.jpg'
 
     },
     {

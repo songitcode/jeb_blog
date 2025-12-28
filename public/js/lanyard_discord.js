@@ -39,10 +39,15 @@ async function loadUI() {
 
     data.activities
         .filter(a => a.type === 0) // chỉ activity thật (game/app)
-        .forEach(a => {
-            const startTime = a.timestamps?.start
-                ? new Date(a.timestamps.start).toLocaleString()
-                : "Không rõ";
+        .forEach((a, index) => {
+
+            const startTimestamp = a.timestamps?.start ?? null;
+            const activityId = `activity-time-${index}`;
+
+            const appId = a.application_id;
+            const appIcon = data.application?.icon
+                ? `https://cdn.discordapp.com/app-icons/${appId}/${data.application.icon}.png`
+                : null;
 
             const largeImg = a.assets?.large_image
                 ? `https://cdn.discordapp.com/app-assets/${a.application_id}/${a.assets.large_image}.png`
@@ -65,10 +70,25 @@ async function loadUI() {
                     </div>
                     ${a.details ? `<div>${a.details}</div>` : ""}
                     ${a.state ? `<div>${a.state}</div>` : ""}
-                    <div class="time">${startTime}</div>
+                    <div class="time" id="${activityId}">
+                       ${startTimestamp ? "00:00" : "Không rõ"}
+                    </div>
                 </div>
             </div>
         `;
+            // ⏱️ Timer 
+            if (startTimestamp) {
+                const start = startTimestamp;
+
+                const updateTime = () => {
+                    const now = Date.now();
+                    document.getElementById(activityId).innerText =
+                        formatDuration(now - start);
+                };
+
+                updateTime();
+                setInterval(updateTime, 1000);
+            }
         });
 }
 
@@ -96,5 +116,18 @@ async function loadStatus() {
             `${custom.emoji?.name || ""} ${custom.state || ""}`;
     }
 }
+function formatDuration(ms) {
+    const totalSeconds = Math.floor(ms / 1000);
+    const h = Math.floor(totalSeconds / 3600);
+    const m = Math.floor((totalSeconds % 3600) / 60);
+    const s = totalSeconds % 60;
+
+    return [
+        h > 0 ? String(h).padStart(2, '0') : null,
+        String(m).padStart(2, '0'),
+        String(s).padStart(2, '0')
+    ].filter(Boolean).join(':');
+}
+
 loadUI();
 loadStatus();
