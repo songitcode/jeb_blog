@@ -199,6 +199,16 @@ html {
     background: rgba(0, 0, 0, 0.5);
 }
 
+.my-project .content-my-project li {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    list-style: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 @media (max-width: 480px) {
     .feel-rest {
         font-size: 13px;
