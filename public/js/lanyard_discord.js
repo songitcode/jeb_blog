@@ -1,6 +1,7 @@
 (() => {
   const USER_ID = "440837500848570376";
-  const API_URL = `https://api.lanyard.rest/v1/users/${USER_ID}`;
+  // const API_URL = `https://api.lanyard.rest/v1/users/${USER_ID}`;
+  const API_URL = `https://lanyard.rest/v1/users/${USER_ID}`;
   const fallbackAvatar = "./images/avatar_1.png";
   let activityTimers = [];
 
