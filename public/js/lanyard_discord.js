@@ -1,133 +1,160 @@
-async function loadUI() {
-    const userId = "440837500848570376";
-    const url = `https://api.lanyard.rest/v1/users/${userId}`;
+(() => {
+  const USER_ID = "440837500848570376";
+  const API_URL = `https://api.lanyard.rest/v1/users/${USER_ID}`;
+  const fallbackAvatar = "./images/avatar_1.png";
+  let activityTimers = [];
 
-    const res = await fetch(url);
-    const { data } = await res.json();
+  const $ = (id) => document.getElementById(id);
+  const escapeHtml = (value = "") => String(value).replace(/[&<>'"]/g, (char) => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;"
+  }[char]));
 
-    // ===== Avatar =====
-    const avatarURL = `https://cdn.discordapp.com/avatars/${data.discord_user.id}/${data.discord_user.avatar}.png?size=2048`;
-    const avatar = document.getElementById("avatar");
-    avatar.src = avatarURL;
-
-    // Avatar viền theo trạng thái
-    avatar.classList.add("status-" + data.discord_status);
-
-    // ===== Tên =====
-    document.getElementById("name").textContent =
-        data.discord_user.display_name || data.discord_user.username;
-
-    // ===== Trạng thái =====
-    const statusMap = {
-        online: "🟢 Online",
-        idle: "🌙 Idle",
-        dnd: "⛔ Do Not Disturb",
-        offline: "⚫ Offline"
-    };
-    document.getElementById("status").textContent = statusMap[data.discord_status];
-
-    // ===== Custom Status =====
-    const custom = data.activities.find(a => a.type === 4);
-    if (custom) {
-        document.getElementById("custom").innerHTML =
-            `<p>${custom.emoji?.name || ""} ${custom.state || ""}</p>`;
-    }
-
-    // ===== Activities =====
-    const actDiv = document.getElementById("activities");
-    actDiv.innerHTML = "";
-
-    data.activities
-        .filter(a => a.type === 0) // chỉ activity thật (game/app)
-        .forEach((a, index) => {
-
-            const startTimestamp = a.timestamps?.start ?? null;
-            const activityId = `activity-time-${index}`;
-
-            const appId = a.application_id;
-            const appIcon = data.application?.icon
-                ? `https://cdn.discordapp.com/app-icons/${appId}/${data.application.icon}.png`
-                : null;
-
-            const largeImg = a.assets?.large_image
-                ? `https://cdn.discordapp.com/app-assets/${a.application_id}/${a.assets.large_image}.png`
-                : null;
-
-            const smallImg = a.assets?.small_image
-                ? `https://cdn.discordapp.com/app-assets/${a.application_id}/${a.assets.small_image}.png`
-                : null;
-
-            actDiv.innerHTML += `
-            <div class="activity-card">
-                <div class="activity-left">
-                    ${largeImg ? `<img src="${largeImg}" class="large-icon">` : `<div class="large-icon empty"></div>`}
-                </div>
-
-                <div class="activity-right">
-                    <div class="d-flex align-items-center gap-1">
-                        <div><b>${a.name}</b></div>
-                        <div>${smallImg ? `<img src="${smallImg}" class="small-icon">` : ""}</div>
-                    </div>
-                    ${a.details ? `<div>${a.details}</div>` : ""}
-                    ${a.state ? `<div>${a.state}</div>` : ""}
-                    <div class="time" id="${activityId}">
-                       ${startTimestamp ? "00:00" : "Không rõ"}
-                    </div>
-                </div>
-            </div>
-        `;
-            // ⏱️ Timer 
-            if (startTimestamp) {
-                const start = startTimestamp;
-
-                const updateTime = () => {
-                    const now = Date.now();
-                    document.getElementById(activityId).innerText =
-                        formatDuration(now - start);
-                };
-
-                updateTime();
-                setInterval(updateTime, 1000);
-            }
-        });
-}
-
-async function loadStatus() {
-    const userId = "440837500848570376";
-    const url = `https://api.lanyard.rest/v1/users/${userId}`;
-
-    const res = await fetch(url);
-    const { data } = await res.json();
-
-    const status = data.discord_status;
-
-    const dot = document.querySelector(".dot-active");
-
-    // Xóa class cũ
-    // dot.classList.remove("status-online", "status-idle", "status-dnd", "status-offline");
-
-    // Thêm class theo trạng thái
-    dot.classList.add(`dot-${status}`);
-
-    // Custom Status
-    const custom = data.activities.find(a => a.type === 4);
-    if (custom) {
-        document.getElementById("custom").innerText =
-            `${custom.emoji?.name || ""} ${custom.state || ""}`;
-    }
-}
-function formatDuration(ms) {
-    const totalSeconds = Math.floor(ms / 1000);
+  const formatDuration = (ms) => {
+    const totalSeconds = Math.max(0, Math.floor(ms / 1000));
     const h = Math.floor(totalSeconds / 3600);
     const m = Math.floor((totalSeconds % 3600) / 60);
     const s = totalSeconds % 60;
+    return [h > 0 ? String(h).padStart(2, "0") : null, String(m).padStart(2, "0"), String(s).padStart(2, "0")]
+      .filter(Boolean).join(":");
+  };
 
-    return [
-        h > 0 ? String(h).padStart(2, '0') : null,
-        String(m).padStart(2, '0'),
-        String(s).padStart(2, '0')
-    ].filter(Boolean).join(':');
-}
+  const statusText = {
+    online: "🟢 Online",
+    idle: "🌙 Idle",
+    dnd: "⛔ Do Not Disturb",
+    offline: "⚫ Offline"
+  };
 
-loadUI();
-loadStatus();
+  const statusShort = { online: "Online", idle: "Idle", dnd: "DND", offline: "Offline" };
+
+  function avatarUrl(user) {
+    if (user?.avatar) return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=512`;
+    const index = Number((BigInt(user?.id || USER_ID) >> 22n) % 6n);
+    return `https://cdn.discordapp.com/embed/avatars/${index}.png`;
+  }
+
+  function assetUrl(activity, key) {
+    const asset = activity?.assets?.[key];
+    if (!asset || !activity?.application_id) return null;
+    if (asset.startsWith("mp:") || asset.startsWith("spotify:")) return null;
+    if (asset.startsWith("https://") || asset.startsWith("http://")) return asset;
+    return `https://cdn.discordapp.com/app-assets/${activity.application_id}/${asset}.png?size=128`;
+  }
+
+  function activityLabel(activity) {
+    if (activity.type === 2) return "Listening";
+    if (activity.type === 3) return "Watching";
+    if (activity.type === 5) return "Competing";
+    if (activity.type === 4) return "Custom Status";
+    return "Playing";
+  }
+
+  function clearTimers() {
+    activityTimers.forEach(clearInterval);
+    activityTimers = [];
+  }
+
+  function renderActivities(data) {
+    const container = $("activities");
+    if (!container) return;
+    clearTimers();
+
+    const activities = Array.isArray(data?.activities)
+      ? data.activities.filter((a) => a.type !== 4)
+      : [];
+
+    if ($("activityCount")) $("activityCount").textContent = `${activities.length} hoạt động`;
+
+    if (!activities.length) {
+      container.innerHTML = `<div class="activity-empty"><i class="fa-regular fa-moon"></i> Hiện không có hoạt động công khai.</div>`;
+      return;
+    }
+
+    container.innerHTML = activities.map((a, index) => {
+      const large = assetUrl(a, "large_image");
+      const small = assetUrl(a, "small_image");
+      const start = a.timestamps?.start || null;
+      const timeId = `activity-time-${index}`;
+      const detail = a.details || a.state || "";
+      const state = a.details && a.state ? a.state : "";
+      return `
+        <div class="activity-card">
+          <div class="activity-left">
+            ${large ? `<img src="${escapeHtml(large)}" class="large-icon" alt="" loading="lazy" onerror="this.style.display='none'">` : `<div class="large-icon empty"></div>`}
+          </div>
+          <div class="activity-right">
+            <div><b>${escapeHtml(a.name || activityLabel(a))}</b>${small ? `<img src="${escapeHtml(small)}" class="small-icon" alt="" loading="lazy">` : ""}</div>
+            <div>${escapeHtml(detail)}</div>
+            ${state ? `<div>${escapeHtml(state)}</div>` : ""}
+            <div class="time" id="${timeId}">${start ? formatDuration(Date.now() - start) : activityLabel(a)}</div>
+          </div>
+        </div>`;
+    }).join("");
+
+    activities.forEach((a, index) => {
+      const el = $(`activity-time-${index}`);
+      if (!el || !a.timestamps?.start) return;
+      const update = () => { el.textContent = formatDuration(Date.now() - a.timestamps.start); };
+      update();
+      activityTimers.push(setInterval(update, 1000));
+    });
+  }
+
+  function render(data) {
+    const user = data?.discord_user;
+    const status = data?.discord_status || "offline";
+    const avatar = $("avatar");
+    const name = $("name");
+    const statusEl = $("status");
+    const shortEl = $("discordStatusShort");
+    const dot = $("discordStatusDot");
+    const customEl = $("custom");
+
+    if (avatar && user) {
+      avatar.src = avatarUrl(user);
+      avatar.onerror = () => { avatar.onerror = null; avatar.src = fallbackAvatar; };
+    }
+    if (name && user) name.firstChild.nodeValue = `${user.global_name || user.display_name || user.username || "Discord User"} `;
+    if (statusEl) statusEl.textContent = statusText[status] || statusText.offline;
+    if (shortEl) shortEl.textContent = statusShort[status] || "Offline";
+    if (dot) {
+      dot.classList.remove("dot-online", "dot-idle", "dot-dnd", "dot-offline");
+      dot.classList.add(`dot-${status}`);
+      dot.title = statusText[status] || "Offline";
+    }
+
+    const custom = Array.isArray(data?.activities) ? data.activities.find((a) => a.type === 4) : null;
+    if (customEl) {
+      if (custom) {
+        const emoji = custom.emoji?.name || "";
+        customEl.innerHTML = `<span>${escapeHtml(`${emoji} ${custom.state || ""}`.trim())}</span>`;
+      } else {
+        customEl.innerHTML = `<span>Không có custom status</span>`;
+      }
+    }
+
+    renderActivities(data);
+  }
+
+  async function loadDiscord() {
+    try {
+      const response = await fetch(API_URL, { cache: "no-store" });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const payload = await response.json();
+      if (!payload?.success || !payload?.data) throw new Error("Invalid Lanyard response");
+      render(payload.data);
+    } catch (error) {
+      console.warn("Không thể tải Discord Lanyard:", error);
+      if ($("status")) $("status").textContent = "⚫ Không thể tải trạng thái Discord";
+      if ($("discordStatusShort")) $("discordStatusShort").textContent = "Unavailable";
+      if ($("custom")) $("custom").innerHTML = `<span>Discord status tạm thời không khả dụng</span>`;
+      if ($("activities")) $("activities").innerHTML = `<div class="activity-empty"><i class="fa-solid fa-plug-circle-xmark"></i> Không kết nối được Lanyard API.</div>`;
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    loadDiscord();
+    // Refresh periodically so status/activity stays current even if the page remains open.
+    setInterval(loadDiscord, 30000);
+  });
+})();

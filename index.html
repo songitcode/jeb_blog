@@ -1,497 +1,245 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>Hoàng Sơn</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/css/style.css">
-    <link rel="stylesheet" href="/public/css/song_bar.css">
-    <link rel="stylesheet" href="/public/css/social.css">
-    <link rel="stylesheet" href="/public/css/product.css">
-    <link rel="stylesheet" href="/public/css/introduce.css">
-    <link rel="stylesheet" href="/public/css/template.css">
-    <link rel="stylesheet" href="/public/css/payment.css">
-    <link rel="stylesheet" href="/public/css/line-loader.css">
-    <link rel="stylesheet" href="/public/css/marquee-animation.css">
-    <link rel="stylesheet" href="/public/css/discord.css">
-    <link rel="stylesheet" href="/public/css/muadong.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./public/bootstrap-5.3.7-dist/css/bootstrap.min.css">
-    <link rel="icon" type="image/x-icon" href="https://rounder.pics/assets/img/ui/round-image.webp">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07080d">
+  <meta name="description" content="Portfolio của Nguyễn Hoàng Sơn — Web Developer, Laravel & UI enthusiast.">
+  <meta name="author" content="Nguyen Hoang Son">
+  <title>Nguyễn Hoàng Sơn — Web Developer</title>
+  <link rel="icon" type="image/png" href="./images/avatar_1.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="./public/css/portfolio.css">
 </head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="aurora aurora-a" aria-hidden="true"></div>
+  <div class="aurora aurora-b" aria-hidden="true"></div>
 
-<body class="bg-dark">
-    <!-- ///////////////////////////////// -->
-    <div id="particles-js"></div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Trang chủ">
+      <span class="brand-mark">Jebs</span>
+      <span>NGUYỄN HOÀNG SƠN</span>
+    </a>
+    <nav class="nav" id="nav">
+      <a class="active" href="#home">Trang chủ</a>
+      <a href="#about">Giới thiệu</a>
+      <a href="#projects">Dự án</a>
+      <a href="#designs">Thiết kế</a>
+      <a href="#contact">Liên hệ</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Mở menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+  </header>
 
-    <!-- Các góc trang trí -->
-    <div class="decoration santa-container">
-        <div class="santa">
-            <div class="santa-hat"></div>
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="pulse"></span> Available for new projects</div>
+        <h1>Xin chào, tôi là <span>Nguyễn Sơn.</span><br>Web Developer.</h1>
+        <p class="hero-lead">Tôi xây dựng những website hiện đại, nhanh và có trải nghiệm người dùng rõ ràng — tập trung vào <strong>Laravel, PHP, JavaScript</strong> và giao diện web.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">Xem dự án <i class="fa-solid fa-arrow-down"></i></a>
+          <a class="btn btn-ghost" href="#contact">Liên hệ tôi</a>
         </div>
+        <div class="hero-meta">
+          <span><i class="fa-solid fa-location-dot"></i> Hồ Chí Minh, Việt Nam</span>
+          <span><i class="fa-solid fa-code"></i> Full-stack oriented</span>
+        </div>
+      </div>
+
+      <div class="hero-card reveal discord-live-card">
+        <div class="hero-glow"></div>
+        <div class="discord-label"><i class="fa-brands fa-discord"></i> Profiles</div>
+        <div class="avatar-wrap discord-avatar-wrap">
+          <img src="./images/avatar_1.png" alt="Discord avatar" class="avatar" id="avatar">
+          <span class="status-dot dot-active" id="discordStatusDot" title="Discord status"></span>
+        </div>
+        <div class="profile-name" id="name">Nguyen Hoang Son <i class="fa-solid fa-circle-check"></i></div>
+        <div class="profile-role" id="status">Đang tải trạng thái Discord...</div>
+        <div class="discord-custom" id="custom"><span>Đang tải custom status...</span></div>
+        <div class="mini-stats">
+          <div><strong>DISCORD</strong><span id="discordStatusShort">Loading</span></div>
+          <div><strong>ACTIVITY</strong><span id="activityCount">0 hoạt động</span></div>
+          <div><strong>WORK</strong><span>hihi</span></div>
+        </div>
+        <div class="activities" id="activities" aria-live="polite">
+          <div class="activity-empty"><i class="fa-solid fa-spinner fa-spin"></i> Đang tải hoạt động...</div>
+        </div>
+        <div class="availability"><span></span> Trạng thái được cập nhật theo Discord</div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="section-heading reveal">
+        <span class="section-kicker">01 — ABOUT</span>
+        <h2>Biến ý tưởng thành <em>sản phẩm.</em></h2>
+        <p>Không chỉ làm cho website “chạy được”, tôi ưu tiên cấu trúc rõ ràng, giao diện chỉn chu và cảm giác sử dụng mượt mà.</p>
+      </div>
+      <div class="about-grid">
+        <article class="glass-card reveal">
+          <div class="icon-box"><i class="fa-solid fa-layer-group"></i></div>
+          <h3>Phát triển web</h3>
+          <p>Xây dựng hệ thống web với PHP/Laravel, MySQL, JavaScript và REST API. Tập trung vào khả năng mở rộng và bảo trì.</p>
+        </article>
+        <article class="glass-card reveal">
+          <div class="icon-box"><i class="fa-solid fa-pen-ruler"></i></div>
+          <h3>UI & trải nghiệm</h3>
+          <p>Thiết kế layout responsive, visual hierarchy, animation vừa đủ và giao diện tối ưu cho cả desktop lẫn mobile.</p>
+        </article>
+        <article class="glass-card reveal">
+          <div class="icon-box"><i class="fa-solid fa-gauge-high"></i></div>
+          <h3>Tối ưu & hoàn thiện</h3>
+          <p>Ưu tiên tốc độ tải, trạng thái lỗi rõ ràng, code sạch và những chi tiết nhỏ tạo cảm giác chuyên nghiệp.</p>
+        </article>
+      </div>
+      <div class="skills reveal">
+        <div class="skills-title">TECH STACK</div>
+        <div class="skill-list">
+          <span><i class="fa-brands fa-laravel"></i> Laravel</span>
+          <span><i class="fa-brands fa-php"></i> PHP</span>
+          <span><i class="fa-brands fa-js"></i> JavaScript</span>
+          <span><i class="fa-brands fa-html5"></i> HTML5</span>
+          <span><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+          <span><i class="fa-solid fa-database"></i> MySQL</span>
+          <span><i class="fa-brands fa-bootstrap"></i> Bootstrap</span>
+          <span><i class="fa-brands fa-git-alt"></i> Git</span>
+          <span><i class="fa-solid fa-palette"></i> Figma / PS</span>
+          <span><i class="fa-solid fa-palette"></i> ...</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects" id="projects">
+      <div class="section-heading reveal">
+        <span class="section-kicker">02 — PROJECTS</span>
+        <h2>Một vài sản phẩm <em>đang thực hiện.</em></h2>
+        <p>Những dự án thực tế tôi đang phát triển và duy trì.</p>
+      </div>
+      <div class="project-grid">
+        <a class="project-card featured reveal" href="https://www.lssdhrtime.com/" target="_blank" rel="noopener noreferrer">
+          <div class="project-image project-one"><img src="./images/displayweb_1.png" alt="Website mẫu LSSD HR Time" loading="lazy"><span>HR / TIMEKEEPING</span></div>
+          <div class="project-body">
+            <div><span class="tag">Laravel</span><span class="tag">PHP</span><span class="tag">MySQL</span></div>
+            <h3>LSSD HR Time (Quản lý chấm công)</h3>
+            <p>Website quản lý chấm công và nhân sự với định hướng vận hành thực tế.</p>
+            <span class="project-link">Mở website <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+          </div>
+        </a>
+        <a class="project-card reveal" href="https://www.gta5vnlspd.online/" target="_blank" rel="noopener noreferrer">
+          <div class="project-image project-two"><img src="./images/displayweb_2.png" alt="Website mẫu GTA5 VN LSPD" loading="lazy"><span>COMMUNITY / GAME</span></div>
+          <div class="project-body">
+            <div><span class="tag">Web</span><span class="tag">Community</span></div>
+            <h3>LSSD Form</h3>
+            <p>Nền tảng website phục vụ cộng đồng game và hệ thống nội dung liên quan.</p>
+            <span class="project-link">Mở website <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section designs" id="designs">
+      <div class="section-heading reveal">
+        <span class="section-kicker">03 — DESIGN WORK</span>
+        <h2>Tôi <em>đã thiết kế.</em></h2>
+        <p>Click vào từng preview để xem kích thước lớn.</p>
+      </div>
+      <div class="gallery">
+        <button class="gallery-item tall reveal" data-title="Login Page 1" data-img="./images/gif/template_1.gif">
+          <img src="./images/gif/template_1.gif" alt="Login Page 1" loading="lazy"><span>Login Page 1</span>
+        </button>
+        <button class="gallery-item reveal" data-title="Home Page 1" data-img="./images/image_3.png">
+          <img src="./images/image_3.png" alt="Home Page 1" loading="lazy"><span>Home Page 1</span>
+        </button>
+        <button class="gallery-item reveal" data-title="Login Page 2" data-img="./images/image_6.png">
+          <img src="./images/image_6.png" alt="Login Page 2" loading="lazy"><span>Login Page 2</span>
+        </button>
+        <button class="gallery-item wide reveal" data-title="iOS App" data-img="./images/image_2.png">
+          <img src="./images/image_2.png" alt="iOS App" loading="lazy"><span>iOS App</span>
+        </button>
+        <button class="gallery-item wide reveal" data-title="Poster 1" data-img="./images/gif/lssd_sonmyname1.gif">
+          <img src="./images/gif/lssd_sonmyname1.gif" alt="Poster 1" loading="lazy" style="object-fit: fill;"><span>Poster 1</span>
+        </button>
+        <button class="gallery-item tall reveal" data-title="Home Page 2" data-img="./images/image_7.png">
+          <img src="./images/image_7.png" alt="Home Page 2" loading="lazy"><span>Home Page 2</span>
+        </button>
+        <button class="gallery-item reveal" data-title="Son Myname Gif" data-img="./images/gif/lssd_sonmyname.gif">
+          <img src="./images/gif/lssd_sonmyname.gif" alt="Son Myname Gif" loading="lazy"><span>Son Myname Gif</span>
+        </button>
+        <button class="gallery-item reveal" data-title="Banner Gif" data-img="./images/gif/standard.gif">
+          <img src="./images/gif/standard.gif" alt="Banner Gif" loading="lazy"><span>Banner Gif</span>
+        </button>
+        <button class="gallery-item reveal" data-title="Son Myname Gif" data-img="./images/gif/lssd_sonmyname3.gif">
+          <img src="./images/gif/lssd_sonmyname3.gif" alt="Son Myname Gif" loading="lazy"><span>Son Myname Gif</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="contact-card reveal">
+        <div>
+          <span class="section-kicker">04 — CONTACT</span>
+          <h2>Cùng tạo một sản phẩm <em>thật tốt.</em></h2>
+          <p>Nếu bạn có một website, ý tưởng hoặc dự án cần triển khai, hãy kết nối với tôi.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:son71868@gmail.com">son71868@gmail.com <i class="fa-solid fa-paper-plane"></i></a>
+          <div class="socials">
+            <a href="https://github.com/songitcode" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/nguyenhoangson1606/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/@jason_ngy/" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://discord.gg/HDYqjuRfJy" target="_blank" rel="noopener" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section donate">
+      <div class="section-heading compact reveal">
+        <span class="section-kicker">05 — SUPPORT</span>
+        <h2>Ủng hộ <em>tôi.</em></h2>
+      </div>
+      <div class="bank-grid">
+        <article class="bank-card reveal">
+          <div class="bank-top"><span>VIETCOMBANK</span><i class="fa-solid fa-building-columns"></i></div>
+          <p class="bank-number" id="stk1">1032019994</p>
+          <p>NGUYEN HOANG SON</p>
+          <img src="./images/QR_Vietcombank.jpg" alt="QR Vietcombank" loading="lazy">
+          <button class="copy-btn" data-copy="1032019994"><i class="fa-regular fa-copy"></i> Sao chép số tài khoản</button>
+        </article>
+        <article class="bank-card reveal">
+          <div class="bank-top"><span>SACOMBANK</span><i class="fa-solid fa-building-columns"></i></div>
+          <p class="bank-number" id="stk2">07132077841</p>
+          <p>NGUYEN HOANG SON</p>
+          <img src="./images/QR_Sacombank.png" alt="QR Sacombank" loading="lazy">
+          <button class="copy-btn" data-copy="07132077841"><i class="fa-regular fa-copy"></i> Sao chép số tài khoản</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div class="music-player" id="musicPlayer">
+    <button class="music-art" id="playButton" aria-label="Phát / tạm dừng"><i class="fa-solid fa-play" id="playIcon"></i></button>
+    <div class="music-info"><strong id="songTitle">Chưa phát nhạc</strong><span id="songTime">00:00 / 00:00</span></div>
+    <input type="range" id="progressBar" min="0" max="100" value="0" aria-label="Tiến trình bài hát">
+    <button class="music-next" id="nextButton" aria-label="Bài tiếp theo"><i class="fa-solid fa-forward-step"></i></button>
+    <audio id="audioPlayer" preload="metadata"></audio>
+  </div>
+
+  <div class="modal" id="imageModal" aria-hidden="true">
+    <button class="modal-close" id="modalClose" aria-label="Đóng"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-inner">
+      <img id="modalImage" src="" alt="">
+      <p id="modalTitle"></p>
     </div>
+  </div>
 
-    <div class="decoration reindeer-container">
-        <div class="reindeer">
-            <div class="reindeer-head">
-                <div class="reindeer-antler left"></div>
-                <div class="reindeer-antler right"></div>
-                <div class="reindeer-nose"></div>
-            </div>
-        </div>
-    </div>
+  <div class="toast" id="toast" role="status">Đã sao chép!</div>
+  <footer><div>© <span id="year"></span> Nguyen Hoang Son</div><div>Designed & developed with care.</div></footer>
 
-    <div class="decoration tree-container">
-        <div class="tree"></div>
-        <div class="tree"></div>
-        <div class="tree"></div>
-        <div class="trunk"></div>
-        <div class="ornament"></div>
-        <div class="ornament"></div>
-        <div class="ornament"></div>
-        <div class="ornament"></div>
-        <div class="star">★</div>
-    </div>
-
-    <div class="decoration snowman-container">
-        <div class="snowman">
-            <div class="snowball large"></div>
-            <div class="snowball medium"></div>
-            <div class="snowball small"></div>
-            <div class="snowman-eye left"></div>
-            <div class="snowman-eye right"></div>
-            <div class="snowman-nose"></div>
-            <div class="snowman-mouth"></div>
-            <div class="snowman-hat"></div>
-        </div>
-    </div>
-
-    <!-- Hiệu ứng quà rơi -->
-    <div class="gifts-container" id="gifts-container"></div>
-    <!-- /////////////////////////// -->
-
-    <div class="info mb-3 ">
-        <div class="box-info">
-            <div class="avatar giua-tam">
-                <div class="avatar-circle">
-                    <img src="/" alt="avatar_1" class="info_avatar" id="avatar">
-                    <div class="feel-rest" id="custom"><span id="status"></span></div>
-                    <div class="dot-feel"></div>
-                    <div class="dot-active"></div>
-                </div>
-            </div>
-            <div class="name giua-tam mt-3">
-                <h1 class="d-flex align-items-center">
-                    <p>Nguyen Hoang Son <!--(<span id="name"></span>)--></p>
-                    <i class="fa-solid fa-circle-check fa-xs mb-2 ms-2" style="color: #007AFE;"></i>
-                </h1>
-            </div>
-            <div class="text d-flex justify-content-center text-white">
-                <p class="address">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <a class="address-link" target="_blank" href="https://en.wikipedia.org/wiki/Ho_Chi_Minh_City">Ho Chi
-                        Minh City</a> /
-                    <a class="address-link" target="_blank" href="https://en.wikipedia.org/wiki/Vietnam">Vietnamese</a>
-                    <img src="https://img.icons8.com/?size=100&id=2egPD0I7yi4-&format=png&color=000000" alt=""
-                        width="20px" height="20px">
-                </p>
-            </div>
-            <div class="time-active giua-tam text-white info">
-                <div id="activities"></div>
-                <div></div>
-            </div>
-        </div>
-    </div>
-
-    <div id="music-prompt">
-        xem ngay bây giờ ...
-    </div>
-
-    <div id="copy-toast" class="copy-toast">Đã sao chép!</div>
-
-    <div class="media-volume">
-        <i class="fas fa-volume-up" id="volume-icon" style="cursor: pointer;"></i>
-        <input type="range" id="volume-bar" min="0" max="1" step="0.01" value="1">
-        <!-- <i class="fas fa-volume-up"></i> -->
-    </div>
-
-    <!-- Background Video -->
-    <!-- <video autoplay muted loop playsinline id="bg-video">
-        <source src="./video/video_5.mp4" type="video/mp4">
-        Your browser does not support HTML5 video.
-    </video> -->
-
-    <audio id="audio-player" src="/"></audio>
-
-    <!-- Trình điều khiển -->
-    <div class="media-controls d-flex justify-content-center">
-        <div class="media-progress hover-bb">
-            <div class="row">
-                <div class="col-md-2 ps-0 pe-0">
-                    <img class="img-song" id="song-img" src="/" alt="" width="100%" height="100%">
-                </div>
-                <div class="col-md-10">
-                    <video autoplay muted loop playsinline id="bg-video-1">
-                        <source
-                            src="https://cdn.discordapp.com/assets/collectibles/nameplates/nameplates/vengeance/asset.webm"
-                            type="video/mp4" />
-                        Trình duyệt của bạn không hỗ trợ video nền.
-                    </video>
-                    <div class="media-controls-overlay">
-                        <div class="song-title text-white mt-2 z-1" id="song-title">
-                            Nhấn bất kỳ đâu ...
-                        </div>
-                        <div class="time-info">
-                            <!-- <span id="current-time">00:00</span> / <span id="total-duration">00:00</span> -->
-                        </div>
-                        <div class="d-flex align-items-center gap-2">
-                            <button class="back-button media-button" title="Back">
-                                <i class="fas fa-step-backward"></i>
-                            </button>
-
-                            <button class="rewind-button media-button" title="Tua 5s">
-                                <i class="fas fa-backward"></i>
-                            </button>
-                            <span id="current-time">00:00</span>
-                            <input type="range" id="progress-bar" value="0" step="1">
-                            <span id="total-duration">00:00</span>
-                            <button class="fast-forward-button media-button" title="Tua 5s">
-                                <i class="fas fa-forward"></i>
-                            </button>
-
-                            <button class="skip-button media-button" title="Skip">
-                                <i class="fas fa-step-forward"></i>
-                            </button>
-                        </div>
-                        <div class="group-1 pt-2">
-                            <div class="view">
-                                <i class="fa-solid fa-eye"></i></i> <span id="view-count">204,166k</span>
-                            </div>
-                            <button class="play-button media-button" title="Play/Pause">
-                                <i class="fas fa-play" id="play-icon"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <h2 class="text-effect-1 lilita-font text-center mt-3">LIÊN HỆ VỚI TÔI</h2>
-    <div class="social">
-        <div class="social-buttons">
-            <a target="_blank" href="https://github.com/songitcode" class="social-button github">
-                <i class="fa-brands fa-github fa-2xl"></i>
-            </a>
-            <a target="_blank" href="https://www.linkedin.com/in/nguyenhoangson1606/" class="social-button linkedin">
-                <i class="fa-brands fa-linkedin fa-2xl"></i>
-            </a>
-            <a target="_blank" href="https://www.youtube.com/@jason_ngy/" class="social-button youtube">
-                <i class="fa-brands fa-youtube fa-2xl"></i>
-            </a>
-            <a target="_blank" href="https://discord.gg/HDYqjuRfJy" class="social-button discord">
-                <i class="fa-brands fa-discord fa-2xl"></i>
-            </a>
-        </div>
-    </div>
-
-    <div class="pay-ment-info container mt-5">
-        <div class="donate">
-            <div class="row justify-content-center gap-3">
-                <div class="col-lg-8 text-center">
-                    <h2 class="lilita-font text-effect-1">Donate</h2>
-                </div>
-                <div class="col-md-4 payment-box text-white text-center p-3 rounded-4 shadow"
-                    style="background-color: rgba(0,0,0,0.4);">
-                    <div class="bank-line mb-2 d-flex justify-content-between align-items-center">
-                        <span>Số tài khoản: <strong id="stk1">1032019994</strong></span>
-                        <button class="btn btn-sm btn-outline-light copy-btn" data-copy="#stk1">
-                            <i class="fa fa-copy"></i>
-                        </button>
-                    </div>
-                    <div class="bank-line mb-2 d-flex justify-content-between align-items-center">
-                        <span>Vietcombank: <strong id="bank1">NGUYEN HOANG SON</strong></span>
-                        <button class="btn btn-sm btn-outline-light copy-btn" data-copy="#bank1">
-                            <i class="fa fa-copy"></i>
-                        </button>
-                    </div>
-                    <div class="qr-image mt-3">
-                        <img src="./images/QR_Vietcombank.jpg" class="qr-img img-fluid rounded-3">
-                    </div>
-                </div>
-
-                <div class="col-md-4 payment-box text-white text-center p-3 rounded-4 shadow"
-                    style="background-color: rgba(0,0,0,0.4);">
-                    <div class="bank-line mb-2 d-flex justify-content-between align-items-center">
-                        <span>Số tài khoản: <strong id="stk2">07132077841</strong></span>
-                        <button class="btn btn-sm btn-outline-light copy-btn" data-copy="#stk2">
-                            <i class="fa fa-copy"></i>
-                        </button>
-                    </div>
-                    <div class="bank-line mb-2 d-flex justify-content-between align-items-center">
-                        <span>Sacombank: <strong id="bank2">NGUYEN HOANG SON</strong></span>
-                        <button class="btn btn-sm btn-outline-light copy-btn" data-copy="#bank2">
-                            <i class="fa fa-copy"></i>
-                        </button>
-                    </div>
-                    <div class="qr-image mt-3">
-                        <img src="./images/QR_Sacombank.png" class="qr-img img-fluid rounded-3">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="template mt-5">
-        <div class="container">
-            <h2 class="lilita-font text-effect-1 text-center">My Website Designed Template</h2>
-            <div class="d-flex justify-content-center">
-                <div class="masonry-temp mt-4">
-                    <!-- Items -->
-                    <div class="masonry-item-temp">
-                        <div class="temp-picture" data-title="Login-Page 1" data-img="./images/gif/template_1.gif">
-                            <img src="./images/gif/template_1.gif">
-                        </div>
-                    </div>
-
-                    <div class="masonry-item-temp">
-                        <div class="temp-picture" data-title="Home Page 1" data-img="./images/image_3.png">
-                            <img src="./images/image_3.png">
-                        </div>
-                    </div>
-
-                    <div class="masonry-item-temp">
-                        <div class="temp-picture" data-title="Login-Page 2" data-img="./images/image_6.png">
-                            <img src="./images/image_6.png">
-                        </div>
-                    </div>
-
-                    <div class="masonry-item-temp">
-                        <div class="temp-picture" data-title="Home Page 2" data-img="./images/image_7.png">
-                            <img src="./images/image_7.png">
-                        </div>
-                    </div>
-
-                    <div class="masonry-item-temp">
-                        <div class="temp-picture" data-title="IOS APP" data-img="./images/image_2.png">
-                            <img src="./images/image_2.png">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    <div class="modal fade" id="imgModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content bg-dark">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title text-white" id="imgTitle"></h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body p-0 text-center">
-                    <img id="imgModalDisplay" class="img-fluid rounded">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="product mt-5">
-        <div class="container">
-            <h2 class="lilita-font text-effect-1 text-center">My Discord Banner Design Template</h2>
-            <div class="text-white text-center mt-3">
-                <small>
-                    Contact my discord for advice - Liên hệ nhanh
-                    <a target="_blank" href="https://discord.gg/HDYqjuRfJy" class="text-white">discord</a>
-                    của tôi để được tư vấn
-                </small>
-            </div>
-            <div class="d-flex justify-content-center">
-                <div class="masonry-temp mt-4">
-                    <div class="masonry-item-temp">
-                        <div class="temp-picture" data-title="Banner Discord" data-img="./images/gif/lssd_sonmyname1.gif">
-                            <div class="product-picture">
-                                <img src="./images/gif/1.gif_OFF" alt="">
-                                <div class="product-price">
-                                    Liên hệ
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item-temp">
-                        <div class="temp-picture" data-title="Banner Discord" data-img="./images/gif/lssd_rec_1.gif">
-                            <div class="product-picture">
-                                <img src="./images/gif/2.gif_OFF" alt="">
-                                <div class="product-price">
-                                    Liên hệ
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item-temp">
-                        <div class="temp-picture" data-title="Banner Discord" data-img="./images/gif/3.gif">
-                            <div class="product-picture">
-                                <img src="./images/gif/3.gif_OFF" alt="">
-                                <div class="product-price">
-                                    Liên hệ
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item-temp">
-                        <div class="temp-picture" data-title="Banner Discord" data-img="./images/gif/4.gif">
-                            <div class="product-picture">
-                                <img src="./images/gif/4.gif_OFF" alt="">
-                                <div class="product-price">
-                                    Liên hệ
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div> 
-
-    <!-- <div class="marquee-container mt-5">
-        <div class="marquee-track-1">
-            <div class="marquee-content">
-                <span class="badge"><i class="fa-brands fa-html5"></i> HTML</span>
-                <span class="badge"><i class="fa-brands fa-css3-alt"></i> CSS</span>
-                <span class="badge"><i class="fa-brands fa-js"></i> JavaScript</span>
-                <span class="badge"><i class="fa-brands fa-laravel"></i> Laravel</span>
-                <span class="badge"><i class="fa-brands fa-figma"></i> Figma</span>
-                <span class="badge"><i class="fa-solid fa-palette"></i> Photoshop</span>
-                <span class="badge">C#</span>
-                <span class="badge"><i class="fa-brands fa-java"></i> Java</span>
-                <span class="badge"><i class="fa-solid fa-database"></i> MySQL</span>
-                <span class="badge"><i class="fa-brands fa-bootstrap"></i> Bootstrap5</span>
-            </div>
-
-            <div class="marquee-content">
-                <span class="badge"><i class="fa-brands fa-html5"></i> HTML</span>
-                <span class="badge"><i class="fa-brands fa-css3-alt"></i> CSS</span>
-                <span class="badge"><i class="fa-brands fa-js"></i> <i class="fa-brands fa-java"></i> Script</span>
-                <span class="badge"><i class="fa-brands fa-laravel"></i> Laravel</span>
-                <span class="badge"><i class="fa-brands fa-figma"></i> Figma</span>
-                <span class="badge"><i class="fa-solid fa-palette"></i> Photoshop</span>
-                <span class="badge">C#</span>
-                <span class="badge"><i class="fa-brands fa-java"></i> Java</span>
-                <span class="badge"><i class="fa-solid fa-database"></i> MySQL</span>
-                <span class="badge"><i class="fa-brands fa-bootstrap"></i> Bootstrap5</span>
-            </div>
-        </div>
-
-        <div class="marquee-track-2">
-            <div class="marquee-content">
-                <span class="badge"><i class="fa-brands fa-html5"></i> HTML</span>
-                <span class="badge"><i class="fa-brands fa-css3-alt"></i> CSS</span>
-                <span class="badge"><i class="fa-brands fa-js"></i> JavaScript</span>
-                <span class="badge"><i class="fa-brands fa-laravel"></i> Laravel</span>
-                <span class="badge"><i class="fa-brands fa-figma"></i> Figma</span>
-                <span class="badge"><i class="fa-solid fa-palette"></i> Photoshop</span>
-                <span class="badge">C#</span>
-                <span class="badge"><i class="fa-brands fa-java"></i> Java</span>
-                <span class="badge"><i class="fa-solid fa-database"></i> MySQL</span>
-                <span class="badge"><i class="fa-brands fa-bootstrap"></i> Bootstrap5</span>
-            </div>
-
-            <div class="marquee-content">
-                <span class="badge"><i class="fa-brands fa-html5"></i> HTML</span>
-                <span class="badge"><i class="fa-brands fa-css3-alt"></i> CSS</span>
-                <span class="badge"><i class="fa-brands fa-js"></i> JavaScript</span>
-                <span class="badge"><i class="fa-brands fa-laravel"></i> Laravel</span>
-                <span class="badge"><i class="fa-brands fa-figma"></i> Figma</span>
-                <span class="badge"><i class="fa-solid fa-palette"></i> Photoshop</span>
-                <span class="badge">C#</span>
-                <span class="badge"><i class="fa-brands fa-java"></i> Java</span>
-                <span class="badge"><i class="fa-solid fa-database"></i> MySQL</span>
-                <span class="badge"><i class="fa-brands fa-bootstrap"></i> Bootstrap5</span>
-            </div>
-        </div>
-        <div class="marquee-track-3">
-            <div class="marquee-content">
-                <span class="badge"><i class="fa-brands fa-html5"></i> HTML</span>
-                <span class="badge"><i class="fa-brands fa-css3-alt"></i> CSS</span>
-                <span class="badge"><i class="fa-brands fa-js"></i> JavaScript</span>
-                <span class="badge"><i class="fa-brands fa-laravel"></i> Laravel</span>
-                <span class="badge"><i class="fa-brands fa-figma"></i> Figma</span>
-                <span class="badge"><i class="fa-solid fa-palette"></i> Photoshop</span>
-                <span class="badge">C#</span>
-                <span class="badge"><i class="fa-brands fa-java"></i> Java</span>
-                <span class="badge"><i class="fa-solid fa-database"></i> MySQL</span>
-                <span class="badge"><i class="fa-brands fa-bootstrap"></i> Bootstrap5</span>
-            </div>
-
-            <div class="marquee-content">
-                <span class="badge"><i class="fa-brands fa-html5"></i> HTML</span>
-                <span class="badge"><i class="fa-brands fa-css3-alt"></i> CSS</span>
-                <span class="badge"><i class="fa-brands fa-js"></i> JavaScript</span>
-                <span class="badge"><i class="fa-brands fa-laravel"></i> Laravel</span>
-                <span class="badge"><i class="fa-brands fa-figma"></i> Figma</span>
-                <span class="badge"><i class="fa-solid fa-palette"></i> Photoshop</span>
-                <span class="badge">C#</span>
-                <span class="badge"><i class="fa-brands fa-java"></i> Java</span>
-                <span class="badge"><i class="fa-solid fa-database"></i> MySQL</span>
-                <span class="badge"><i class="fa-brands fa-bootstrap"></i> Bootstrap5</span>
-            </div>
-        </div>
-    </div> -->
-
-    <footer class="mt-5 pb-2 text-white">
-        <div class="container">
-            <hr>
-            <p class="align-middle">© <span id="yearNow"></span> Designed and developed by Nguyen Hoang Son</p>
-            <div class="d-flex gap-2 align-middle">
-                <a target="_blank" href="https://github.com/songitcode" class="social-button github">
-                    <i class="fa-brands fa-github fa-2xl"></i>
-                </a>
-                <a target="_blank" href="https://www.linkedin.com/in/nguyenhoangson1606/"
-                    class="social-button linkedin">
-                    <i class="fa-brands fa-linkedin fa-2xl"></i>
-                </a>
-                <a target="_blank" href="https://www.youtube.com/@jason_ngy/" class="social-button youtube">
-                    <i class="fa-brands fa-youtube fa-2xl"></i>
-                </a>
-                <a target="_blank" href="https://discord.gg/HDYqjuRfJy" class="social-button discord">
-                    <i class="fa-brands fa-discord fa-2xl"></i>
-                </a>
-            </div>
-            <script>
-                let currentDate = new Date();
-                let currentYear = currentDate.getFullYear();
-                document.getElementById("yearNow").innerHTML = currentYear;
-            </script>
-        </div>
-    </footer>
-
-    <script src="./public/bootstrap-5.3.7-dist/js/bootstrap.min.js"></script>
-    <script src="public/js/random-view-count.js"></script>
-    <script src="public/js/audio_load.js"></script>
-    <script src="public/js/payment.js"></script>
-    <script src="public/js/modal_img.js"></script>
-    <script src="public/js/lanyard_discord.js"></script>
-    <script src="public/js/particles.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ECW6LJE6LV"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-ECW6LJE6LV');
-    </script>
+  <script src="./public/js/lanyard_discord.js"></script>
+  <script src="./public/js/portfolio.js"></script>
 </body>
-
 </html>
