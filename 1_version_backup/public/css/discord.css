@@ -1,0 +1,65 @@
+.dot-online {
+    background: #43b581;
+}
+
+.dot-idle {
+    background: #faa61a;
+}
+
+.dot-dnd {
+    background: #f04747;
+}
+
+.dot-offline {
+    background: #747f8d;
+}
+
+.status-online {
+    border-color: #43b581;
+}
+
+.status-idle {
+    border-color: #faa61a;
+}
+
+.status-dnd {
+    border-color: #f04747;
+}
+
+.status-offline {
+    border-color: #747f8d;
+}
+
+.activity-card {
+    display: flex;
+    background: #2b2b2b;
+    border-radius: 10px;
+    padding: 10px;
+    gap: 10px;
+    width: 100%;
+    font-size: 11px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.large-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+}
+
+.small-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+}
+
+.activity-right {
+    flex-grow: 1;
+}
+
+.time {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 5px;
+}
